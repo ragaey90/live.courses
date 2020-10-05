@@ -1,0 +1,539 @@
+﻿@model live.courses.Models.AspNetUser
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_mylayout.cshtml";
+}
+
+
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.EmailConfirmed)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EmailConfirmed)
+                </dd>
+
+
+
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumberConfirmed)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Country)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Country)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.State)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.State)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Gender)
+                </dd>
+
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Apout)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Apout)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AnotherAccount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AnotherAccount)
+                </dd>
+
+
+
+
+
+            </dl>
+
+
+        </div>
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsInstructor)
+                </dt>
+
+                <dd>
+                    @if (Model.IsInstructor == true)
+                    {
+                        <b> Yes</b>
+                    }
+                    else
+                    {
+                        <b> No</b>
+
+                    }
+
+                    @*@Html.DisplayFor(model => model.IsInstructor)*@
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Photo)
+                </dt>
+
+                <dd>
+                    @if (!string.IsNullOrEmpty(Model.Photo))
+                    {
+                        <b style="color:darkgreen"> Exist</b>
+                    }
+                    else
+                    {
+                        <b style="color:tomato"> Not Exist</b>
+
+                    }
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.GuaranteeDecument)
+                </dt>
+
+                <dd>
+                    @if (!string.IsNullOrEmpty(Model.GuaranteeDecument))
+                    {
+                        <b style="color:darkgreen"> Exist</b>
+                    }
+                    else
+                    {
+                        <b style="color:tomato"> Not Exist</b>
+
+                    }
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IdCard)
+                </dt>
+
+                <dd>
+                    @if (!string.IsNullOrEmpty(Model.IdCard))
+                    {
+                        <b style="color:darkgreen"> Exist</b>
+                    }
+                    else
+                    {
+                        <b style="color:tomato"> Not Exist</b>
+
+                    }
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Residence)
+                </dt>
+
+                <dd>
+                    @if (!string.IsNullOrEmpty(Model.Residence))
+                    {
+                        <b style="color:darkgreen"> Exist</b>
+                    }
+                    else
+                    {
+                        <b style="color:tomato"> Not Exist</b>
+
+                    }
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Photograph)
+                </dt>
+
+                <dd>
+                    @if (!string.IsNullOrEmpty(Model.Photograph))
+                    {
+                        <b style="color:darkgreen"> Exist</b>
+                    }
+                    else
+                    {
+                        <b style="color:tomato"> Not Exist</b>
+
+                    }
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IdCardBack)
+                </dt>
+
+                <dd>
+                    @if (!string.IsNullOrEmpty(Model.IdCardBack))
+                    {
+                        <b style="color:darkgreen"> Exist</b>
+                    }
+                    else
+                    {
+                        <b style="color:tomato"> Not Exist</b>
+
+                    }
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.facebookAccount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.facebookAccount)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.twitterAccount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.twitterAccount)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.jobTitle)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.jobTitle)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeviceToken)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeviceToken)
+                </dd>
+
+            </dl>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+    @if (!string.IsNullOrEmpty(Model.Photo))
+    {
+        <div class="col-lg-6 mb-4">
+
+            <!-- Illustrations -->
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <a target="_blank" rel="nofollow" href="" data-toggle="modal" data-target="#exampleModalCenter_photo">
+                        <div class="text-center">
+                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width:100%;" src="@Url.Content(Model.Photo)" alt="">
+                        </div>
+                    </a>
+                    <p>Photo</p>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter_photo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Photo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="@Url.Content(Model.Photo)" alt="There Is No QR" style="width:100%;" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+@if (!string.IsNullOrEmpty(Model.Photograph))
+{
+
+
+    <div class="col-lg-6 mb-4">
+
+        <!-- Illustrations -->
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <a target="_blank" rel="nofollow" href="" data-toggle="modal" data-target="#exampleModalCenter_Photograph">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width:100%;" src="@Url.Content(Model.Photograph)" alt="">
+                    </div>
+                </a>
+                <p>Photograph</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter_Photograph" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Photograph</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="@Url.Content(Model.Photograph)" alt="There Is No QR" style="width:100%;" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (!string.IsNullOrEmpty(Model.GuaranteeDecument))
+{
+
+
+
+    <div class="col-lg-6 mb-4">
+
+        <!-- Illustrations -->
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <a target="_blank" rel="nofollow" href="" data-toggle="modal" data-target="#exampleModalCenter_GuaranteeDecument">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width:100%;" src="@Url.Content(Model.GuaranteeDecument)" alt="">
+                    </div>
+                </a>
+                <p>Guarantee Decument</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter_GuaranteeDecument" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Guarantee Decument</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="@Url.Content(Model.GuaranteeDecument)" alt="There Is No QR" style="width:100%;" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (!string.IsNullOrEmpty(Model.IdCard))
+{
+ 
+
+
+    <div class="col-lg-6 mb-4">
+
+        <!-- Illustrations -->
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <a target="_blank" rel="nofollow" href="" data-toggle="modal" data-target="#exampleModalCenter_IdCard">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width:100%;" src="@Url.Content(Model.IdCard)" alt="">
+                    </div>
+                </a>
+                <p>IdCard</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter_IdCard" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">IdCard</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="@Url.Content(Model.IdCard)" alt="There Is No QR" style="width:100%;" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (!string.IsNullOrEmpty(Model.IdCardBack))
+{
+    <div class="col-lg-6 mb-4">
+
+        <!-- Illustrations -->
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <a target="_blank" rel="nofollow" href="" data-toggle="modal" data-target="#exampleModalCenter_IdCardBack">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width:100%;" src="@Url.Content(Model.IdCardBack)" alt="">
+                    </div>
+                </a>
+                <p>IdCardBack</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter_IdCardBack" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">IdCardBack</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="@Url.Content(Model.IdCardBack)" alt="There Is No QR" style="width:100%;" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (!string.IsNullOrEmpty(Model.Residence))
+{
+
+
+    <div class="col-lg-6 mb-4">
+
+        <!-- Illustrations -->
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <a target="_blank" rel="nofollow" href="" data-toggle="modal" data-target="#exampleModalCenter_Residence">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width:100%;" src="@Url.Content(Model.Residence)" alt="">
+                    </div>
+                </a>
+                <p>Residence</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter_Residence" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Residence</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="@Url.Content(Model.Residence)" alt="There Is No QR" style="width:100%;" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+<p>
+    @if (Model.IsInstructor == true)
+    {
+        @Html.ActionLink("Denay this instructor", "Remove_instructor", new { id = Model.Id }, new { @class = "btn btn-outline-danger" })
+
+    }
+    else
+    {
+        @Html.ActionLink("Accept as instructor", "Accept_instructor", new { id = Model.Id }, new { @class = "btn btn-outline-primary" })
+
+    }
+    |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-info" })
+</p>
+
+

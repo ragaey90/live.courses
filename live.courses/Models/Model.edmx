@@ -1,0 +1,2684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="adv_coursesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="150" />
+          <Property Name="State" Type="nvarchar" MaxLength="150" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="Apout" Type="nvarchar(max)" />
+          <Property Name="AnotherAccount" Type="nvarchar(max)" />
+          <Property Name="IsInstructor" Type="bit" />
+          <Property Name="GuaranteeDecument" Type="nvarchar(max)" />
+          <Property Name="IdCard" Type="nvarchar(max)" />
+          <Property Name="IdCardBack" Type="nvarchar(max)" />
+          <Property Name="Residence" Type="nvarchar(max)" />
+          <Property Name="Photograph" Type="nvarchar(max)" />
+          <Property Name="facebookAccount" Type="nvarchar(max)" />
+          <Property Name="twitterAccount" Type="nvarchar(max)" />
+          <Property Name="jobTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeviceToken" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="certificates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="inst_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="post_id" Type="int" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="course">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="about" Type="nvarchar(max)" />
+          <Property Name="creating_date" Type="datetime" />
+          <Property Name="place" Type="nvarchar(max)" />
+          <Property Name="trange" Type="nvarchar(max)" />
+          <Property Name="cost" Type="float" />
+          <Property Name="way_to_pay" Type="nvarchar(max)" />
+          <Property Name="allow_buying" Type="bit" />
+          <Property Name="availlable" Type="bit" />
+          <Property Name="way_to_apply" Type="nvarchar(max)" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="instructor" Type="nvarchar" MaxLength="128" />
+          <Property Name="video" Type="nvarchar(max)" />
+          <Property Name="category" Type="nvarchar(max)" />
+          <Property Name="Archived" Type="bit" />
+          <Property Name="room_id" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="course_comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="course_id" Type="int" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Course_Members">
+          <Key>
+            <PropertyRef Name="Course_id" />
+            <PropertyRef Name="Member_id" />
+          </Key>
+          <Property Name="Course_id" Type="int" Nullable="false" />
+          <Property Name="Member_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AddingDate" Type="date" />
+          <Property Name="Finished" Type="bit" />
+        </EntityType>
+        <EntityType Name="course_tags">
+          <Key>
+            <PropertyRef Name="course_id" />
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="int" Nullable="false" />
+          <Property Name="tag_name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="friends">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="friendId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="friendId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="since" Type="date" />
+          <Property Name="Confirmed" Type="bit" />
+        </EntityType>
+        <EntityType Name="group_comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="group_id" Type="int" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="inst_previous_courses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inst_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="title" Type="nvarchar" MaxLength="200" />
+          <Property Name="body" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="like">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="liked_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="liked_id" Type="int" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="room_id" Type="int" Nullable="false" />
+          <Property Name="sender_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="notification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="source_name" Type="nvarchar" MaxLength="200" />
+          <Property Name="source_id" Type="int" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="timestamp" Type="datetime" />
+          <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="readed" Type="bit" />
+        </EntityType>
+        <EntityType Name="post">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="group_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="group_id" Type="int" />
+          <Property Name="title" Type="nvarchar" MaxLength="200" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="reply">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="post_id" Type="int" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="comment_id" Type="int" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="about" Type="nvarchar(max)" />
+          <Property Name="photo" Type="nvarchar(max)" />
+          <Property Name="admin" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Room_Members">
+          <Key>
+            <PropertyRef Name="Room_id" />
+            <PropertyRef Name="Member" />
+          </Key>
+          <Property Name="Room_id" Type="int" Nullable="false" />
+          <Property Name="Member" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AddingDate" Type="date" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tags">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tag" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="work_group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="about" Type="nvarchar(max)" />
+          <Property Name="creating_date" Type="datetime" />
+          <Property Name="place" Type="nvarchar(max)" />
+          <Property Name="trange" Type="nvarchar(max)" />
+          <Property Name="availlable" Type="bit" />
+          <Property Name="way_to_apply" Type="nvarchar(max)" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="admin" Type="nvarchar" MaxLength="128" />
+          <Property Name="category" Type="nvarchar(max)" />
+          <Property Name="video" Type="nvarchar(max)" />
+          <Property Name="Archived" Type="bit" />
+          <Property Name="room_id" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Work_group_members">
+          <Key>
+            <PropertyRef Name="Work_group_id" />
+            <PropertyRef Name="Member_id" />
+          </Key>
+          <Property Name="Work_group_id" Type="int" Nullable="false" />
+          <Property Name="Member_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AddingDate" Type="date" />
+        </EntityType>
+        <EntityType Name="work_group_tags">
+          <Key>
+            <PropertyRef Name="work_group_id" />
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="work_group_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="int" Nullable="false" />
+          <Property Name="tag_name" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_comment_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comment" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_comment_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="course_comment" Type="Self.course_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="course_comment">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_comment_course">
+          <End Role="course" Type="Self.course" Multiplicity="0..1" />
+          <End Role="course_comment" Type="Self.course_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="course_comment">
+              <PropertyRef Name="course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Members_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course_Members" Type="Self.Course_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Course_Members">
+              <PropertyRef Name="Member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Members_course">
+          <End Role="course" Type="Self.course" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course_Members" Type="Self.Course_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Course_Members">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_tags_course">
+          <End Role="course" Type="Self.course" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_tags" Type="Self.course_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="course_tags">
+              <PropertyRef Name="course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_tags_tags">
+          <End Role="tags" Type="Self.tags" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_tags" Type="Self.course_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tags">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="course_tags">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_group_comment_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="group_comment" Type="Self.group_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="group_comment">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_group_comment_work_group">
+          <End Role="work_group" Type="Self.work_group" Multiplicity="0..1" />
+          <End Role="group_comment" Type="Self.group_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="work_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="group_comment">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inst_previous_courses_inst_previous_courses">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="inst_previous_courses" Type="Self.inst_previous_courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="inst_previous_courses">
+              <PropertyRef Name="inst_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_like_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="like" Type="Self.like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="like">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notification_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notification" Type="Self.notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="notification">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reply_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reply" Type="Self.reply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="reply">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Members_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Room_Members" Type="Self.Room_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Room_Members">
+              <PropertyRef Name="Member" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Members_room">
+          <End Role="room" Type="Self.room" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Room_Members" Type="Self.Room_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Room_Members">
+              <PropertyRef Name="Room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Work_group_members_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Work_group_members" Type="Self.Work_group_members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Work_group_members">
+              <PropertyRef Name="Member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Work_group_members_work_group">
+          <End Role="work_group" Type="Self.work_group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Work_group_members" Type="Self.Work_group_members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="work_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Work_group_members">
+              <PropertyRef Name="Work_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_group_tags_tags">
+          <End Role="tags" Type="Self.tags" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="work_group_tags" Type="Self.work_group_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tags">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="work_group_tags">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_group_tags_work_group">
+          <End Role="work_group" Type="Self.work_group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="work_group_tags" Type="Self.work_group_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="work_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="work_group_tags">
+              <PropertyRef Name="work_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="accept_friend_request" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="reciver" Type="nvarchar" Mode="In" />
+          <Parameter Name="sender" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="add_security_info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="guarantee" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="idcard" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="idcardback" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="residence" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="photograph" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="archive_course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="archive_work_group" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="create_room_for_course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="create_room_for_work_group" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="edit_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="country" Type="nvarchar" Mode="In" />
+          <Parameter Name="state" Type="nvarchar" Mode="In" />
+          <Parameter Name="gender" Type="nvarchar" Mode="In" />
+          <Parameter Name="photo" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="apout" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="another_account" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="facebookAccount" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="twitterAccount" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="jobTitle" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="finish_course_for_all_members" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="finish_course_for_one_member" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user_id" Type="nvarchar" Mode="In" />
+          <Parameter Name="course_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="Get_all_archived_courses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="get_all_archived_courses_for_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Get_all_archived_groups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="get_all_archived_work_groups_for_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="get_all_course_mempers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="get_all_course_tags" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="get_all_finished_courses_for_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="get_all_friend_requests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="get_all_friends" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="get_all_not_finished_courses_for_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="get_all_un_archived_courses_for_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="get_all_un_archived_work_groups_for_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Get_all_unarchived_courses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_all_unarchived_groups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="get_all_work_group_mempers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="get_all_work_group_tags" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="get_certificates_by_inst_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="inst_id" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="remove_friend_or_frequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="reciver" Type="nvarchar" Mode="In" />
+          <Parameter Name="sender" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="search_all" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="search_courses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="search_courses_WGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="search_tags" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="search_users" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="search_work_groups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="send_friend_request" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="reciver" Type="nvarchar" Mode="In" />
+          <Parameter Name="sender" Type="nvarchar" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="un_archive_course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="un_archive_work_group" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="adv_coursesModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="certificates" EntityType="Self.certificates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comment" EntityType="Self.comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="course" EntityType="Self.course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="course_comment" EntityType="Self.course_comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course_Members" EntityType="Self.Course_Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="course_tags" EntityType="Self.course_tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="friends" EntityType="Self.friends" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="group_comment" EntityType="Self.group_comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inst_previous_courses" EntityType="Self.inst_previous_courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="like" EntityType="Self.like" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notification" EntityType="Self.notification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="post" EntityType="Self.post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reply" EntityType="Self.reply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="room" EntityType="Self.room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room_Members" EntityType="Self.Room_Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tags" EntityType="Self.tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="work_group" EntityType="Self.work_group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Work_group_members" EntityType="Self.Work_group_members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="work_group_tags" EntityType="Self.work_group_tags" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_comment_AspNetUsers" Association="Self.FK_comment_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_comment_AspNetUsers" Association="Self.FK_course_comment_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="course_comment" EntitySet="course_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_comment_course" Association="Self.FK_course_comment_course">
+            <End Role="course" EntitySet="course" />
+            <End Role="course_comment" EntitySet="course_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Members_AspNetUsers" Association="Self.FK_Course_Members_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Course_Members" EntitySet="Course_Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Members_course" Association="Self.FK_Course_Members_course">
+            <End Role="course" EntitySet="course" />
+            <End Role="Course_Members" EntitySet="Course_Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_tags_course" Association="Self.FK_course_tags_course">
+            <End Role="course" EntitySet="course" />
+            <End Role="course_tags" EntitySet="course_tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_tags_tags" Association="Self.FK_course_tags_tags">
+            <End Role="tags" EntitySet="tags" />
+            <End Role="course_tags" EntitySet="course_tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_group_comment_AspNetUsers" Association="Self.FK_group_comment_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="group_comment" EntitySet="group_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_group_comment_work_group" Association="Self.FK_group_comment_work_group">
+            <End Role="work_group" EntitySet="work_group" />
+            <End Role="group_comment" EntitySet="group_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inst_previous_courses_inst_previous_courses" Association="Self.FK_inst_previous_courses_inst_previous_courses">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="inst_previous_courses" EntitySet="inst_previous_courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_AspNetUsers" Association="Self.FK_like_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="like" EntitySet="like" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notification_AspNetUsers" Association="Self.FK_notification_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="notification" EntitySet="notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_AspNetUsers" Association="Self.FK_post_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reply_AspNetUsers" Association="Self.FK_reply_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="reply" EntitySet="reply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Members_AspNetUsers" Association="Self.FK_Room_Members_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Room_Members" EntitySet="Room_Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Members_room" Association="Self.FK_Room_Members_room">
+            <End Role="room" EntitySet="room" />
+            <End Role="Room_Members" EntitySet="Room_Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Work_group_members_AspNetUsers" Association="Self.FK_Work_group_members_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Work_group_members" EntitySet="Work_group_members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Work_group_members_work_group" Association="Self.FK_Work_group_members_work_group">
+            <End Role="work_group" EntitySet="work_group" />
+            <End Role="Work_group_members" EntitySet="Work_group_members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_group_tags_tags" Association="Self.FK_work_group_tags_tags">
+            <End Role="tags" EntitySet="tags" />
+            <End Role="work_group_tags" EntitySet="work_group_tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_group_tags_work_group" Association="Self.FK_work_group_tags_work_group">
+            <End Role="work_group" EntitySet="work_group" />
+            <End Role="work_group_tags" EntitySet="work_group_tags" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="adv_coursesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Apout" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnotherAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsInstructor" Type="Boolean" />
+          <Property Name="GuaranteeDecument" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdCard" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Residence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Photograph" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Course_Members" Relationship="Self.FK_Course_Members_AspNetUsers" FromRole="AspNetUsers" ToRole="Course_Members" />
+          <NavigationProperty Name="Room_Members" Relationship="Self.FK_Room_Members_AspNetUsers" FromRole="AspNetUsers" ToRole="Room_Members" />
+          <NavigationProperty Name="Work_group_members" Relationship="Self.FK_Work_group_members_AspNetUsers" FromRole="AspNetUsers" ToRole="Work_group_members" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="comments" Relationship="adv_coursesModel.FK_comment_AspNetUsers" FromRole="AspNetUser" ToRole="comment" />
+          <NavigationProperty Name="likes" Relationship="adv_coursesModel.FK_like_AspNetUsers" FromRole="AspNetUser" ToRole="like" />
+          <NavigationProperty Name="posts" Relationship="adv_coursesModel.FK_post_AspNetUsers" FromRole="AspNetUser" ToRole="post" />
+          <NavigationProperty Name="replies" Relationship="adv_coursesModel.FK_reply_AspNetUsers" FromRole="AspNetUser" ToRole="reply" />
+          <NavigationProperty Name="notifications" Relationship="adv_coursesModel.FK_notification_AspNetUsers" FromRole="AspNetUser" ToRole="notification" />
+          <NavigationProperty Name="inst_previous_courses" Relationship="adv_coursesModel.FK_inst_previous_courses_inst_previous_courses" FromRole="AspNetUser" ToRole="inst_previous_courses" />
+          <Property Name="IdCardBack" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="facebookAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="twitterAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="jobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="course_comment" Relationship="adv_coursesModel.FK_course_comment_AspNetUsers" FromRole="AspNetUser" ToRole="course_comment" />
+          <NavigationProperty Name="group_comment" Relationship="adv_coursesModel.FK_group_comment_AspNetUsers" FromRole="AspNetUser" ToRole="group_comment" />
+          <Property Name="DeviceToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="certificate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="inst_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="about" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="creating_date" Type="DateTime" Precision="3" />
+          <Property Name="place" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="trange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cost" Type="Double" />
+          <Property Name="way_to_pay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="allow_buying" Type="Boolean" />
+          <Property Name="availlable" Type="Boolean" />
+          <Property Name="way_to_apply" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="instructor" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Archived" Type="Boolean" />
+          <NavigationProperty Name="Course_Members" Relationship="Self.FK_Course_Members_course" FromRole="course" ToRole="Course_Members" />
+          <NavigationProperty Name="course_tags" Relationship="Self.FK_course_tags_course" FromRole="course" ToRole="course_tags" />
+          <NavigationProperty Name="course_comment" Relationship="adv_coursesModel.FK_course_comment_course" FromRole="course" ToRole="course_comment" />
+          <Property Name="room_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Course_Members">
+          <Key>
+            <PropertyRef Name="Course_id" />
+            <PropertyRef Name="Member_id" />
+          </Key>
+          <Property Name="Course_id" Type="Int32" Nullable="false" />
+          <Property Name="Member_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddingDate" Type="DateTime" Precision="0" />
+          <Property Name="Finished" Type="Boolean" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Course_Members_AspNetUsers" FromRole="Course_Members" ToRole="AspNetUsers" />
+          <NavigationProperty Name="course" Relationship="Self.FK_Course_Members_course" FromRole="Course_Members" ToRole="course" />
+        </EntityType>
+        <EntityType Name="course_tags">
+          <Key>
+            <PropertyRef Name="course_id" />
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="tag_id" Type="Int32" Nullable="false" />
+          <Property Name="tag_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="course" Relationship="Self.FK_course_tags_course" FromRole="course_tags" ToRole="course" />
+          <NavigationProperty Name="tag" Relationship="Self.FK_course_tags_tags" FromRole="course_tags" ToRole="tags" />
+        </EntityType>
+        <EntityType Name="friend">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="friendId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="friendId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="since" Type="DateTime" Precision="0" />
+          <Property Name="Confirmed" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="body" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="room_id" Type="Int32" Nullable="false" />
+          <Property Name="sender_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="about" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="admin" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Room_Members" Relationship="Self.FK_Room_Members_room" FromRole="room" ToRole="Room_Members" />
+        </EntityType>
+        <EntityType Name="Room_Members">
+          <Key>
+            <PropertyRef Name="Room_id" />
+            <PropertyRef Name="Member" />
+          </Key>
+          <Property Name="Room_id" Type="Int32" Nullable="false" />
+          <Property Name="Member" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddingDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Room_Members_AspNetUsers" FromRole="Room_Members" ToRole="AspNetUsers" />
+          <NavigationProperty Name="room" Relationship="Self.FK_Room_Members_room" FromRole="Room_Members" ToRole="room" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tag1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="course_tags" Relationship="Self.FK_course_tags_tags" FromRole="tags" ToRole="course_tags" />
+          <NavigationProperty Name="work_group_tags" Relationship="Self.FK_work_group_tags_tags" FromRole="tags" ToRole="work_group_tags" />
+        </EntityType>
+        <EntityType Name="work_group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="about" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="creating_date" Type="DateTime" Precision="3" />
+          <Property Name="place" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="trange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="availlable" Type="Boolean" />
+          <Property Name="way_to_apply" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="admin" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Archived" Type="Boolean" />
+          <NavigationProperty Name="Work_group_members" Relationship="Self.FK_Work_group_members_work_group" FromRole="work_group" ToRole="Work_group_members" />
+          <NavigationProperty Name="work_group_tags" Relationship="Self.FK_work_group_tags_work_group" FromRole="work_group" ToRole="work_group_tags" />
+          <NavigationProperty Name="group_comment" Relationship="adv_coursesModel.FK_group_comment_work_group" FromRole="work_group" ToRole="group_comment" />
+          <Property Name="room_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Work_group_members">
+          <Key>
+            <PropertyRef Name="Work_group_id" />
+            <PropertyRef Name="Member_id" />
+          </Key>
+          <Property Name="Work_group_id" Type="Int32" Nullable="false" />
+          <Property Name="Member_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddingDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Work_group_members_AspNetUsers" FromRole="Work_group_members" ToRole="AspNetUsers" />
+          <NavigationProperty Name="work_group" Relationship="Self.FK_Work_group_members_work_group" FromRole="Work_group_members" ToRole="work_group" />
+        </EntityType>
+        <EntityType Name="work_group_tags">
+          <Key>
+            <PropertyRef Name="work_group_id" />
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="work_group_id" Type="Int32" Nullable="false" />
+          <Property Name="tag_id" Type="Int32" Nullable="false" />
+          <Property Name="tag_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tag" Relationship="Self.FK_work_group_tags_tags" FromRole="work_group_tags" ToRole="tags" />
+          <NavigationProperty Name="work_group" Relationship="Self.FK_work_group_tags_work_group" FromRole="work_group_tags" ToRole="work_group" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Members_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course_Members" Type="Self.Course_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Course_Members">
+              <PropertyRef Name="Member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Members_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Room_Members" Type="Self.Room_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Room_Members">
+              <PropertyRef Name="Member" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Work_group_members_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Work_group_members" Type="Self.Work_group_members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Work_group_members">
+              <PropertyRef Name="Member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Members_course">
+          <End Role="course" Type="Self.course" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Course_Members" Type="Self.Course_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Course_Members">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_tags_course">
+          <End Role="course" Type="Self.course" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_tags" Type="Self.course_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="course_tags">
+              <PropertyRef Name="course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_tags_tags">
+          <End Role="tags" Type="Self.tag" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="course_tags" Type="Self.course_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tags">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="course_tags">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Members_room">
+          <End Role="room" Type="Self.room" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Room_Members" Type="Self.Room_Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Room_Members">
+              <PropertyRef Name="Room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_group_tags_tags">
+          <End Role="tags" Type="Self.tag" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="work_group_tags" Type="Self.work_group_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tags">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="work_group_tags">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Work_group_members_work_group">
+          <End Role="work_group" Type="Self.work_group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Work_group_members" Type="Self.Work_group_members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="work_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Work_group_members">
+              <PropertyRef Name="Work_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_group_tags_work_group">
+          <End Role="work_group" Type="Self.work_group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="work_group_tags" Type="Self.work_group_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="work_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="work_group_tags">
+              <PropertyRef Name="work_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="adv_coursesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="certificates" EntityType="Self.certificate" />
+          <EntitySet Name="courses" EntityType="Self.course" />
+          <EntitySet Name="Course_Members" EntityType="Self.Course_Members" />
+          <EntitySet Name="course_tags" EntityType="Self.course_tags" />
+          <EntitySet Name="friends" EntityType="Self.friend" />
+          <EntitySet Name="messages" EntityType="Self.message" />
+          <EntitySet Name="rooms" EntityType="Self.room" />
+          <EntitySet Name="Room_Members" EntityType="Self.Room_Members" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tags" EntityType="Self.tag" />
+          <EntitySet Name="work_group" EntityType="Self.work_group" />
+          <EntitySet Name="Work_group_members" EntityType="Self.Work_group_members" />
+          <EntitySet Name="work_group_tags" EntityType="Self.work_group_tags" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Members_AspNetUsers" Association="Self.FK_Course_Members_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Course_Members" EntitySet="Course_Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Members_AspNetUsers" Association="Self.FK_Room_Members_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Room_Members" EntitySet="Room_Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Work_group_members_AspNetUsers" Association="Self.FK_Work_group_members_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Work_group_members" EntitySet="Work_group_members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Members_course" Association="Self.FK_Course_Members_course">
+            <End Role="course" EntitySet="courses" />
+            <End Role="Course_Members" EntitySet="Course_Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_tags_course" Association="Self.FK_course_tags_course">
+            <End Role="course" EntitySet="courses" />
+            <End Role="course_tags" EntitySet="course_tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_tags_tags" Association="Self.FK_course_tags_tags">
+            <End Role="tags" EntitySet="tags" />
+            <End Role="course_tags" EntitySet="course_tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Members_room" Association="Self.FK_Room_Members_room">
+            <End Role="room" EntitySet="rooms" />
+            <End Role="Room_Members" EntitySet="Room_Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_group_tags_tags" Association="Self.FK_work_group_tags_tags">
+            <End Role="tags" EntitySet="tags" />
+            <End Role="work_group_tags" EntitySet="work_group_tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Work_group_members_work_group" Association="Self.FK_Work_group_members_work_group">
+            <End Role="work_group" EntitySet="work_group" />
+            <End Role="Work_group_members" EntitySet="Work_group_members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_group_tags_work_group" Association="Self.FK_work_group_tags_work_group">
+            <End Role="work_group" EntitySet="work_group" />
+            <End Role="work_group_tags" EntitySet="work_group_tags" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="accept_friend_request">
+            <Parameter Name="reciver" Mode="In" Type="String" />
+            <Parameter Name="sender" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="add_security_info">
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="guarantee" Mode="In" Type="String" />
+            <Parameter Name="idcard" Mode="In" Type="String" />
+            <Parameter Name="idcardback" Mode="In" Type="String" />
+            <Parameter Name="residence" Mode="In" Type="String" />
+            <Parameter Name="photograph" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="archive_course">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="archive_work_group">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="create_room_for_course">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="create_room_for_work_group">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="edit_user">
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="String" />
+            <Parameter Name="state" Mode="In" Type="String" />
+            <Parameter Name="gender" Mode="In" Type="String" />
+            <Parameter Name="photo" Mode="In" Type="String" />
+            <Parameter Name="apout" Mode="In" Type="String" />
+            <Parameter Name="another_account" Mode="In" Type="String" />
+            <Parameter Name="facebookAccount" Mode="In" Type="String" />
+            <Parameter Name="twitterAccount" Mode="In" Type="String" />
+            <Parameter Name="jobTitle" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="finish_course_for_all_members">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="finish_course_for_one_member">
+            <Parameter Name="user_id" Mode="In" Type="String" />
+            <Parameter Name="course_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Get_all_archived_courses" ReturnType="Collection(adv_coursesModel.Get_all_archived_courses_Result)" />
+          <FunctionImport Name="get_all_archived_courses_for_user" ReturnType="Collection(adv_coursesModel.get_all_archived_courses_for_user_Result)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Get_all_archived_groups" ReturnType="Collection(adv_coursesModel.Get_all_archived_groups_Result)" />
+          <FunctionImport Name="get_all_archived_work_groups_for_user" ReturnType="Collection(adv_coursesModel.get_all_archived_work_groups_for_user_Result)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="get_all_course_mempers" ReturnType="Collection(adv_coursesModel.get_all_course_mempers_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="get_all_course_tags" ReturnType="Collection(adv_coursesModel.get_all_course_tags_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="get_all_finished_courses_for_user" ReturnType="Collection(adv_coursesModel.get_all_finished_courses_for_user_Result)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="get_all_friend_requests" ReturnType="Collection(adv_coursesModel.get_all_friend_requests_Result)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="get_all_friends" ReturnType="Collection(adv_coursesModel.get_all_friends_Result)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="get_all_not_finished_courses_for_user" ReturnType="Collection(adv_coursesModel.get_all_not_finished_courses_for_user_Result)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="get_all_un_archived_courses_for_user" ReturnType="Collection(adv_coursesModel.get_all_un_archived_courses_for_user_Result)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="get_all_un_archived_work_groups_for_user" ReturnType="Collection(adv_coursesModel.get_all_un_archived_work_groups_for_user_Result)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Get_all_unarchived_courses" ReturnType="Collection(adv_coursesModel.Get_all_unarchived_courses_Result)" />
+          <FunctionImport Name="Get_all_unarchived_groups" ReturnType="Collection(adv_coursesModel.Get_all_unarchived_groups_Result)" />
+          <FunctionImport Name="get_all_work_group_mempers" ReturnType="Collection(adv_coursesModel.get_all_work_group_mempers_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="get_all_work_group_tags" ReturnType="Collection(adv_coursesModel.get_all_work_group_tags_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="get_certificates_by_inst_id" ReturnType="Collection(adv_coursesModel.get_certificates_by_inst_id_Result)">
+          <Parameter Name="inst_id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="remove_friend_or_frequest">
+            <Parameter Name="reciver" Mode="In" Type="String" />
+            <Parameter Name="sender" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="search_all" ReturnType="Collection(adv_coursesModel.search_all_Result)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="search_courses" ReturnType="Collection(adv_coursesModel.search_courses_Result)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="search_courses_WGroup" ReturnType="Collection(adv_coursesModel.search_courses_WGroup_Result)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="search_tags" ReturnType="Collection(adv_coursesModel.search_tags_Result)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="search_users" ReturnType="Collection(adv_coursesModel.search_users_Result)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="search_work_groups" ReturnType="Collection(adv_coursesModel.search_work_groups_Result)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="send_friend_request">
+            <Parameter Name="reciver" Mode="In" Type="String" />
+            <Parameter Name="sender" Mode="In" Type="String" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="un_archive_course">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="un_archive_work_group">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="comments" EntityType="adv_coursesModel.comment" />
+          <EntitySet Name="likes" EntityType="adv_coursesModel.like" />
+          <EntitySet Name="posts" EntityType="adv_coursesModel.post" />
+          <EntitySet Name="replies" EntityType="adv_coursesModel.reply" />
+          <AssociationSet Name="FK_comment_AspNetUsers" Association="adv_coursesModel.FK_comment_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="comment" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_AspNetUsers" Association="adv_coursesModel.FK_like_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="like" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_post_AspNetUsers" Association="adv_coursesModel.FK_post_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="post" EntitySet="posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reply_AspNetUsers" Association="adv_coursesModel.FK_reply_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="reply" EntitySet="replies" />
+          </AssociationSet>
+          <EntitySet Name="notifications" EntityType="adv_coursesModel.notification" />
+          <AssociationSet Name="FK_notification_AspNetUsers" Association="adv_coursesModel.FK_notification_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="notification" EntitySet="notifications" />
+          </AssociationSet>
+          <EntitySet Name="inst_previous_courses" EntityType="adv_coursesModel.inst_previous_courses" />
+          <AssociationSet Name="FK_inst_previous_courses_inst_previous_courses" Association="adv_coursesModel.FK_inst_previous_courses_inst_previous_courses">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="inst_previous_courses" EntitySet="inst_previous_courses" />
+          </AssociationSet>
+          <EntitySet Name="course_comment" EntityType="adv_coursesModel.course_comment" />
+          <EntitySet Name="group_comment" EntityType="adv_coursesModel.group_comment" />
+          <AssociationSet Name="FK_course_comment_course" Association="adv_coursesModel.FK_course_comment_course">
+            <End Role="course" EntitySet="courses" />
+            <End Role="course_comment" EntitySet="course_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_group_comment_work_group" Association="adv_coursesModel.FK_group_comment_work_group">
+            <End Role="work_group" EntitySet="work_group" />
+            <End Role="group_comment" EntitySet="group_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_course_comment_AspNetUsers" Association="adv_coursesModel.FK_course_comment_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="course_comment" EntitySet="course_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_group_comment_AspNetUsers" Association="adv_coursesModel.FK_group_comment_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="group_comment" EntitySet="group_comment" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="Get_all_archived_courses_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="about" Nullable="true" />
+          <Property Type="DateTime" Name="creating_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="place" Nullable="true" />
+          <Property Type="String" Name="trange" Nullable="true" />
+          <Property Type="Double" Name="cost" Nullable="true" />
+          <Property Type="String" Name="way_to_pay" Nullable="true" />
+          <Property Type="Boolean" Name="allow_buying" Nullable="true" />
+          <Property Type="Boolean" Name="availlable" Nullable="true" />
+          <Property Type="String" Name="way_to_apply" Nullable="true" />
+          <Property Type="String" Name="notes" Nullable="true" />
+          <Property Type="String" Name="instructor" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="video" Nullable="true" />
+          <Property Type="String" Name="category" Nullable="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_all_archived_courses_for_user_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="Get_all_archived_groups_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="about" Nullable="true" />
+          <Property Type="DateTime" Name="creating_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="place" Nullable="true" />
+          <Property Type="String" Name="trange" Nullable="true" />
+          <Property Type="Boolean" Name="availlable" Nullable="true" />
+          <Property Type="String" Name="way_to_apply" Nullable="true" />
+          <Property Type="String" Name="notes" Nullable="true" />
+          <Property Type="String" Name="admin" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="category" Nullable="true" />
+          <Property Type="String" Name="video" Nullable="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_all_archived_work_groups_for_user_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="get_all_course_mempers_Result">
+          <Property Type="Int32" Name="Course_id" Nullable="false" />
+          <Property Type="String" Name="Member_id" Nullable="false" MaxLength="128" />
+          <Property Type="DateTime" Name="AddingDate" Nullable="true" />
+          <Property Type="Boolean" Name="Finished" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_all_course_tags_Result">
+          <Property Type="Int32" Name="course_id" Nullable="false" />
+          <Property Type="Int32" Name="tag_id" Nullable="false" />
+          <Property Type="String" Name="tag_name" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_all_finished_courses_for_user_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="get_all_friend_requests_Result">
+          <Property Type="String" Name="friendId" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Photo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_all_friends_Result">
+          <Property Type="String" Name="friendId" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Photo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_all_not_finished_courses_for_user_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="get_all_un_archived_courses_for_user_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="get_all_un_archived_work_groups_for_user_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="Get_all_unarchived_courses_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="about" Nullable="true" />
+          <Property Type="DateTime" Name="creating_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="place" Nullable="true" />
+          <Property Type="String" Name="trange" Nullable="true" />
+          <Property Type="Double" Name="cost" Nullable="true" />
+          <Property Type="String" Name="way_to_pay" Nullable="true" />
+          <Property Type="Boolean" Name="allow_buying" Nullable="true" />
+          <Property Type="Boolean" Name="availlable" Nullable="true" />
+          <Property Type="String" Name="way_to_apply" Nullable="true" />
+          <Property Type="String" Name="notes" Nullable="true" />
+          <Property Type="String" Name="instructor" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="video" Nullable="true" />
+          <Property Type="String" Name="category" Nullable="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Get_all_unarchived_groups_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="about" Nullable="true" />
+          <Property Type="DateTime" Name="creating_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="place" Nullable="true" />
+          <Property Type="String" Name="trange" Nullable="true" />
+          <Property Type="Boolean" Name="availlable" Nullable="true" />
+          <Property Type="String" Name="way_to_apply" Nullable="true" />
+          <Property Type="String" Name="notes" Nullable="true" />
+          <Property Type="String" Name="admin" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="category" Nullable="true" />
+          <Property Type="String" Name="video" Nullable="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_all_work_group_mempers_Result">
+          <Property Type="Int32" Name="Work_group_id" Nullable="false" />
+          <Property Type="String" Name="Member_id" Nullable="false" MaxLength="128" />
+          <Property Type="DateTime" Name="AddingDate" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_all_work_group_tags_Result">
+          <Property Type="Int32" Name="work_group_id" Nullable="false" />
+          <Property Type="Int32" Name="tag_id" Nullable="false" />
+          <Property Type="String" Name="tag_name" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="get_certificates_by_inst_id_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="title" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="body" Nullable="true" />
+          <Property Type="String" Name="image" Nullable="true" />
+          <Property Type="String" Name="inst_id" Nullable="false" MaxLength="128" />
+        </ComplexType>
+        <ComplexType Name="search_all_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="about" Nullable="true" />
+          <Property Type="DateTime" Name="creating_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="place" Nullable="true" />
+          <Property Type="String" Name="trange" Nullable="true" />
+          <Property Type="Double" Name="cost" Nullable="true" />
+          <Property Type="String" Name="way_to_pay" Nullable="true" />
+          <Property Type="Boolean" Name="allow_buying" Nullable="true" />
+          <Property Type="Boolean" Name="availlable" Nullable="true" />
+          <Property Type="String" Name="way_to_apply" Nullable="true" />
+          <Property Type="String" Name="notes" Nullable="true" />
+          <Property Type="String" Name="instructor" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="video" Nullable="true" />
+          <Property Type="String" Name="category" Nullable="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="true" />
+          <Property Type="Int32" Name="course_id" Nullable="false" />
+          <Property Type="Int32" Name="tag_id" Nullable="false" />
+          <Property Type="String" Name="tag_name" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="search_courses_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="about" Nullable="true" />
+          <Property Type="DateTime" Name="creating_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="place" Nullable="true" />
+          <Property Type="String" Name="trange" Nullable="true" />
+          <Property Type="Double" Name="cost" Nullable="true" />
+          <Property Type="String" Name="way_to_pay" Nullable="true" />
+          <Property Type="Boolean" Name="allow_buying" Nullable="true" />
+          <Property Type="Boolean" Name="availlable" Nullable="true" />
+          <Property Type="String" Name="way_to_apply" Nullable="true" />
+          <Property Type="String" Name="notes" Nullable="true" />
+          <Property Type="String" Name="instructor" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="video" Nullable="true" />
+          <Property Type="String" Name="category" Nullable="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="true" />
+          <Property Type="Int32" Name="course_id" Nullable="false" />
+          <Property Type="Int32" Name="tag_id" Nullable="false" />
+          <Property Type="String" Name="tag_name" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="search_courses_WGroup_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="about" Nullable="true" />
+          <Property Type="DateTime" Name="creating_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="place" Nullable="true" />
+          <Property Type="String" Name="trange" Nullable="true" />
+          <Property Type="Double" Name="cost" Nullable="true" />
+          <Property Type="String" Name="way_to_pay" Nullable="true" />
+          <Property Type="Boolean" Name="allow_buying" Nullable="true" />
+          <Property Type="Boolean" Name="availlable" Nullable="true" />
+          <Property Type="String" Name="way_to_apply" Nullable="true" />
+          <Property Type="String" Name="notes" Nullable="true" />
+          <Property Type="String" Name="instructor" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="video" Nullable="true" />
+          <Property Type="String" Name="category" Nullable="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="true" />
+          <Property Type="Int32" Name="course_id" Nullable="false" />
+          <Property Type="Int32" Name="tag_id" Nullable="false" />
+          <Property Type="String" Name="tag_name" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="search_tags_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="tag" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="search_users_Result">
+          <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+          <Property Type="Boolean" Name="EmailConfirmed" Nullable="false" />
+          <Property Type="String" Name="PasswordHash" Nullable="true" />
+          <Property Type="String" Name="SecurityStamp" Nullable="true" />
+          <Property Type="String" Name="PhoneNumber" Nullable="true" />
+          <Property Type="Boolean" Name="PhoneNumberConfirmed" Nullable="false" />
+          <Property Type="Boolean" Name="TwoFactorEnabled" Nullable="false" />
+          <Property Type="DateTime" Name="LockoutEndDateUtc" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="LockoutEnabled" Nullable="false" />
+          <Property Type="Int32" Name="AccessFailedCount" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Photo" Nullable="true" />
+          <Property Type="String" Name="Apout" Nullable="true" />
+          <Property Type="String" Name="AnotherAccount" Nullable="true" />
+          <Property Type="Boolean" Name="IsInstructor" Nullable="true" />
+          <Property Type="String" Name="GuaranteeDecument" Nullable="true" />
+          <Property Type="String" Name="IdCard" Nullable="true" />
+          <Property Type="String" Name="Residence" Nullable="true" />
+          <Property Type="String" Name="Photograph" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="search_work_groups_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="about" Nullable="true" />
+          <Property Type="DateTime" Name="creating_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="place" Nullable="true" />
+          <Property Type="String" Name="trange" Nullable="true" />
+          <Property Type="Boolean" Name="availlable" Nullable="true" />
+          <Property Type="String" Name="way_to_apply" Nullable="true" />
+          <Property Type="String" Name="notes" Nullable="true" />
+          <Property Type="String" Name="admin" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="category" Nullable="true" />
+          <Property Type="String" Name="video" Nullable="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="true" />
+          <Property Type="Int32" Name="work_group_id" Nullable="false" />
+          <Property Type="Int32" Name="tag_id" Nullable="false" />
+          <Property Type="String" Name="tag_name" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="post_id" Type="Int32" />
+          <Property Name="user_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="adv_coursesModel.FK_comment_AspNetUsers" FromRole="comment" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="like">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="liked_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="liked_id" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="adv_coursesModel.FK_like_AspNetUsers" FromRole="like" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="post">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="group_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="group_id" Type="Int32" />
+          <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="adv_coursesModel.FK_post_AspNetUsers" FromRole="post" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="reply">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="post_id" Type="Int32" />
+          <Property Name="user_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="comment_id" Type="Int32" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="adv_coursesModel.FK_reply_AspNetUsers" FromRole="reply" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_comment_AspNetUsers">
+          <End Type="adv_coursesModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="adv_coursesModel.comment" Role="comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_like_AspNetUsers">
+          <End Type="adv_coursesModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="adv_coursesModel.like" Role="like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="like">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_post_AspNetUsers">
+          <End Type="adv_coursesModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="adv_coursesModel.post" Role="post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reply_AspNetUsers">
+          <End Type="adv_coursesModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="adv_coursesModel.reply" Role="reply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="reply">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="notification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="source_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="source_id" Type="Int32" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="readed" Type="Boolean" />
+          <NavigationProperty Name="AspNetUser" Relationship="adv_coursesModel.FK_notification_AspNetUsers" FromRole="notification" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_notification_AspNetUsers">
+          <End Type="adv_coursesModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="adv_coursesModel.notification" Role="notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="notification">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="inst_previous_courses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inst_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="adv_coursesModel.FK_inst_previous_courses_inst_previous_courses" FromRole="inst_previous_courses" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_inst_previous_courses_inst_previous_courses">
+          <End Type="adv_coursesModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="adv_coursesModel.inst_previous_courses" Role="inst_previous_courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="inst_previous_courses">
+              <PropertyRef Name="inst_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="course_comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="course_id" Type="Int32" />
+          <Property Name="user_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="course" Relationship="adv_coursesModel.FK_course_comment_course" FromRole="course_comment" ToRole="course" />
+          <NavigationProperty Name="AspNetUser" Relationship="adv_coursesModel.FK_course_comment_AspNetUsers" FromRole="course_comment" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="group_comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="group_id" Type="Int32" />
+          <Property Name="user_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="work_group" Relationship="adv_coursesModel.FK_group_comment_work_group" FromRole="group_comment" ToRole="work_group" />
+          <NavigationProperty Name="AspNetUser" Relationship="adv_coursesModel.FK_group_comment_AspNetUsers" FromRole="group_comment" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_course_comment_course">
+          <End Type="adv_coursesModel.course" Role="course" Multiplicity="0..1" />
+          <End Type="adv_coursesModel.course_comment" Role="course_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="course">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="course_comment">
+              <PropertyRef Name="course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_group_comment_work_group">
+          <End Type="adv_coursesModel.work_group" Role="work_group" Multiplicity="0..1" />
+          <End Type="adv_coursesModel.group_comment" Role="group_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="work_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="group_comment">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_course_comment_AspNetUsers">
+          <End Type="adv_coursesModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="adv_coursesModel.course_comment" Role="course_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="course_comment">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_group_comment_AspNetUsers">
+          <End Type="adv_coursesModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="adv_coursesModel.group_comment" Role="group_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="group_comment">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="adv_coursesModelStoreContainer" CdmEntityContainer="adv_coursesEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="adv_coursesModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="adv_coursesModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="adv_coursesModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="adv_coursesModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="DeviceToken" ColumnName="DeviceToken" />
+                <ScalarProperty Name="jobTitle" ColumnName="jobTitle" />
+                <ScalarProperty Name="twitterAccount" ColumnName="twitterAccount" />
+                <ScalarProperty Name="facebookAccount" ColumnName="facebookAccount" />
+                <ScalarProperty Name="IdCardBack" ColumnName="IdCardBack" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Apout" ColumnName="Apout" />
+                <ScalarProperty Name="AnotherAccount" ColumnName="AnotherAccount" />
+                <ScalarProperty Name="IsInstructor" ColumnName="IsInstructor" />
+                <ScalarProperty Name="GuaranteeDecument" ColumnName="GuaranteeDecument" />
+                <ScalarProperty Name="IdCard" ColumnName="IdCard" />
+                <ScalarProperty Name="Residence" ColumnName="Residence" />
+                <ScalarProperty Name="Photograph" ColumnName="Photograph" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="certificates">
+            <EntityTypeMapping TypeName="adv_coursesModel.certificate">
+              <MappingFragment StoreEntitySet="certificates">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="inst_id" ColumnName="inst_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="courses">
+            <EntityTypeMapping TypeName="adv_coursesModel.course">
+              <MappingFragment StoreEntitySet="course">
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="creating_date" ColumnName="creating_date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="trange" ColumnName="trange" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="way_to_pay" ColumnName="way_to_pay" />
+                <ScalarProperty Name="allow_buying" ColumnName="allow_buying" />
+                <ScalarProperty Name="availlable" ColumnName="availlable" />
+                <ScalarProperty Name="way_to_apply" ColumnName="way_to_apply" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="instructor" ColumnName="instructor" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course_Members">
+            <EntityTypeMapping TypeName="adv_coursesModel.Course_Members">
+              <MappingFragment StoreEntitySet="Course_Members">
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Member_id" ColumnName="Member_id" />
+                <ScalarProperty Name="AddingDate" ColumnName="AddingDate" />
+                <ScalarProperty Name="Finished" ColumnName="Finished" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_tags">
+            <EntityTypeMapping TypeName="adv_coursesModel.course_tags">
+              <MappingFragment StoreEntitySet="course_tags">
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="friends">
+            <EntityTypeMapping TypeName="adv_coursesModel.friend">
+              <MappingFragment StoreEntitySet="friends">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="friendId" ColumnName="friendId" />
+                <ScalarProperty Name="since" ColumnName="since" />
+                <ScalarProperty Name="Confirmed" ColumnName="Confirmed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="messages">
+            <EntityTypeMapping TypeName="adv_coursesModel.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="body" ColumnName="body" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rooms">
+            <EntityTypeMapping TypeName="adv_coursesModel.room">
+              <MappingFragment StoreEntitySet="room">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Room_Members">
+            <EntityTypeMapping TypeName="adv_coursesModel.Room_Members">
+              <MappingFragment StoreEntitySet="Room_Members">
+                <ScalarProperty Name="Room_id" ColumnName="Room_id" />
+                <ScalarProperty Name="Member" ColumnName="Member" />
+                <ScalarProperty Name="AddingDate" ColumnName="AddingDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="adv_coursesModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tags">
+            <EntityTypeMapping TypeName="adv_coursesModel.tag">
+              <MappingFragment StoreEntitySet="tags">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tag1" ColumnName="tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="work_group">
+            <EntityTypeMapping TypeName="adv_coursesModel.work_group">
+              <MappingFragment StoreEntitySet="work_group">
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="creating_date" ColumnName="creating_date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="trange" ColumnName="trange" />
+                <ScalarProperty Name="availlable" ColumnName="availlable" />
+                <ScalarProperty Name="way_to_apply" ColumnName="way_to_apply" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Work_group_members">
+            <EntityTypeMapping TypeName="adv_coursesModel.Work_group_members">
+              <MappingFragment StoreEntitySet="Work_group_members">
+                <ScalarProperty Name="Work_group_id" ColumnName="Work_group_id" />
+                <ScalarProperty Name="Member_id" ColumnName="Member_id" />
+                <ScalarProperty Name="AddingDate" ColumnName="AddingDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="work_group_tags">
+            <EntityTypeMapping TypeName="adv_coursesModel.work_group_tags">
+              <MappingFragment StoreEntitySet="work_group_tags">
+                <ScalarProperty Name="work_group_id" ColumnName="work_group_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="adv_coursesModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="accept_friend_request" FunctionName="adv_coursesModel.Store.accept_friend_request" />
+          <FunctionImportMapping FunctionImportName="add_security_info" FunctionName="adv_coursesModel.Store.add_security_info" />
+          <FunctionImportMapping FunctionImportName="archive_course" FunctionName="adv_coursesModel.Store.archive_course" />
+          <FunctionImportMapping FunctionImportName="archive_work_group" FunctionName="adv_coursesModel.Store.archive_work_group" />
+          <FunctionImportMapping FunctionImportName="create_room_for_course" FunctionName="adv_coursesModel.Store.create_room_for_course" />
+          <FunctionImportMapping FunctionImportName="create_room_for_work_group" FunctionName="adv_coursesModel.Store.create_room_for_work_group" />
+          <FunctionImportMapping FunctionImportName="edit_user" FunctionName="adv_coursesModel.Store.edit_user" />
+          <FunctionImportMapping FunctionImportName="finish_course_for_all_members" FunctionName="adv_coursesModel.Store.finish_course_for_all_members" />
+          <FunctionImportMapping FunctionImportName="finish_course_for_one_member" FunctionName="adv_coursesModel.Store.finish_course_for_one_member" />
+          <FunctionImportMapping FunctionImportName="Get_all_archived_courses" FunctionName="adv_coursesModel.Store.Get_all_archived_courses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.Get_all_archived_courses_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="creating_date" ColumnName="creating_date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="trange" ColumnName="trange" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="way_to_pay" ColumnName="way_to_pay" />
+                <ScalarProperty Name="allow_buying" ColumnName="allow_buying" />
+                <ScalarProperty Name="availlable" ColumnName="availlable" />
+                <ScalarProperty Name="way_to_apply" ColumnName="way_to_apply" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="instructor" ColumnName="instructor" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_archived_courses_for_user" FunctionName="adv_coursesModel.Store.get_all_archived_courses_for_user">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_archived_courses_for_user_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_all_archived_groups" FunctionName="adv_coursesModel.Store.Get_all_archived_groups">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.Get_all_archived_groups_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="creating_date" ColumnName="creating_date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="trange" ColumnName="trange" />
+                <ScalarProperty Name="availlable" ColumnName="availlable" />
+                <ScalarProperty Name="way_to_apply" ColumnName="way_to_apply" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_archived_work_groups_for_user" FunctionName="adv_coursesModel.Store.get_all_archived_work_groups_for_user">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_archived_work_groups_for_user_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_course_mempers" FunctionName="adv_coursesModel.Store.get_all_course_mempers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_course_mempers_Result">
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Member_id" ColumnName="Member_id" />
+                <ScalarProperty Name="AddingDate" ColumnName="AddingDate" />
+                <ScalarProperty Name="Finished" ColumnName="Finished" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_course_tags" FunctionName="adv_coursesModel.Store.get_all_course_tags">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_course_tags_Result">
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_finished_courses_for_user" FunctionName="adv_coursesModel.Store.get_all_finished_courses_for_user">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_finished_courses_for_user_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_friend_requests" FunctionName="adv_coursesModel.Store.get_all_friend_requests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_friend_requests_Result">
+                <ScalarProperty Name="friendId" ColumnName="friendId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_friends" FunctionName="adv_coursesModel.Store.get_all_friends">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_friends_Result">
+                <ScalarProperty Name="friendId" ColumnName="friendId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_not_finished_courses_for_user" FunctionName="adv_coursesModel.Store.get_all_not_finished_courses_for_user">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_not_finished_courses_for_user_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_un_archived_courses_for_user" FunctionName="adv_coursesModel.Store.get_all_un_archived_courses_for_user">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_un_archived_courses_for_user_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_un_archived_work_groups_for_user" FunctionName="adv_coursesModel.Store.get_all_un_archived_work_groups_for_user">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_un_archived_work_groups_for_user_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_all_unarchived_courses" FunctionName="adv_coursesModel.Store.Get_all_unarchived_courses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.Get_all_unarchived_courses_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="creating_date" ColumnName="creating_date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="trange" ColumnName="trange" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="way_to_pay" ColumnName="way_to_pay" />
+                <ScalarProperty Name="allow_buying" ColumnName="allow_buying" />
+                <ScalarProperty Name="availlable" ColumnName="availlable" />
+                <ScalarProperty Name="way_to_apply" ColumnName="way_to_apply" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="instructor" ColumnName="instructor" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_all_unarchived_groups" FunctionName="adv_coursesModel.Store.Get_all_unarchived_groups">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.Get_all_unarchived_groups_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="creating_date" ColumnName="creating_date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="trange" ColumnName="trange" />
+                <ScalarProperty Name="availlable" ColumnName="availlable" />
+                <ScalarProperty Name="way_to_apply" ColumnName="way_to_apply" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_work_group_mempers" FunctionName="adv_coursesModel.Store.get_all_work_group_mempers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_work_group_mempers_Result">
+                <ScalarProperty Name="Work_group_id" ColumnName="Work_group_id" />
+                <ScalarProperty Name="Member_id" ColumnName="Member_id" />
+                <ScalarProperty Name="AddingDate" ColumnName="AddingDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_all_work_group_tags" FunctionName="adv_coursesModel.Store.get_all_work_group_tags">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_all_work_group_tags_Result">
+                <ScalarProperty Name="work_group_id" ColumnName="work_group_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_certificates_by_inst_id" FunctionName="adv_coursesModel.Store.get_certificates_by_inst_id">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.get_certificates_by_inst_id_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="inst_id" ColumnName="inst_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="remove_friend_or_frequest" FunctionName="adv_coursesModel.Store.remove_friend_or_frequest" />
+          <FunctionImportMapping FunctionImportName="search_all" FunctionName="adv_coursesModel.Store.search_all">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.search_all_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="creating_date" ColumnName="creating_date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="trange" ColumnName="trange" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="way_to_pay" ColumnName="way_to_pay" />
+                <ScalarProperty Name="allow_buying" ColumnName="allow_buying" />
+                <ScalarProperty Name="availlable" ColumnName="availlable" />
+                <ScalarProperty Name="way_to_apply" ColumnName="way_to_apply" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="instructor" ColumnName="instructor" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="search_courses" FunctionName="adv_coursesModel.Store.search_courses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.search_courses_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="creating_date" ColumnName="creating_date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="trange" ColumnName="trange" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="way_to_pay" ColumnName="way_to_pay" />
+                <ScalarProperty Name="allow_buying" ColumnName="allow_buying" />
+                <ScalarProperty Name="availlable" ColumnName="availlable" />
+                <ScalarProperty Name="way_to_apply" ColumnName="way_to_apply" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="instructor" ColumnName="instructor" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="search_courses_WGroup" FunctionName="adv_coursesModel.Store.search_courses_WGroup">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.search_courses_WGroup_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="creating_date" ColumnName="creating_date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="trange" ColumnName="trange" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="way_to_pay" ColumnName="way_to_pay" />
+                <ScalarProperty Name="allow_buying" ColumnName="allow_buying" />
+                <ScalarProperty Name="availlable" ColumnName="availlable" />
+                <ScalarProperty Name="way_to_apply" ColumnName="way_to_apply" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="instructor" ColumnName="instructor" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="search_tags" FunctionName="adv_coursesModel.Store.search_tags">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.search_tags_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="search_users" FunctionName="adv_coursesModel.Store.search_users">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.search_users_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Apout" ColumnName="Apout" />
+                <ScalarProperty Name="AnotherAccount" ColumnName="AnotherAccount" />
+                <ScalarProperty Name="IsInstructor" ColumnName="IsInstructor" />
+                <ScalarProperty Name="GuaranteeDecument" ColumnName="GuaranteeDecument" />
+                <ScalarProperty Name="IdCard" ColumnName="IdCard" />
+                <ScalarProperty Name="Residence" ColumnName="Residence" />
+                <ScalarProperty Name="Photograph" ColumnName="Photograph" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="search_work_groups" FunctionName="adv_coursesModel.Store.search_work_groups">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="adv_coursesModel.search_work_groups_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="creating_date" ColumnName="creating_date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="trange" ColumnName="trange" />
+                <ScalarProperty Name="availlable" ColumnName="availlable" />
+                <ScalarProperty Name="way_to_apply" ColumnName="way_to_apply" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="work_group_id" ColumnName="work_group_id" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="send_friend_request" FunctionName="adv_coursesModel.Store.send_friend_request" />
+          <FunctionImportMapping FunctionImportName="un_archive_course" FunctionName="adv_coursesModel.Store.un_archive_course" />
+          <FunctionImportMapping FunctionImportName="un_archive_work_group" FunctionName="adv_coursesModel.Store.un_archive_work_group" />
+          <EntitySetMapping Name="comments">
+            <EntityTypeMapping TypeName="adv_coursesModel.comment">
+              <MappingFragment StoreEntitySet="comment">
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="post_id" ColumnName="post_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="likes">
+            <EntityTypeMapping TypeName="adv_coursesModel.like">
+              <MappingFragment StoreEntitySet="like">
+                <ScalarProperty Name="liked_id" ColumnName="liked_id" />
+                <ScalarProperty Name="liked_type" ColumnName="liked_type" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="posts">
+            <EntityTypeMapping TypeName="adv_coursesModel.post">
+              <MappingFragment StoreEntitySet="post">
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="group_type" ColumnName="group_type" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="replies">
+            <EntityTypeMapping TypeName="adv_coursesModel.reply">
+              <MappingFragment StoreEntitySet="reply">
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="comment_id" ColumnName="comment_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="post_id" ColumnName="post_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notifications">
+            <EntityTypeMapping TypeName="adv_coursesModel.notification">
+              <MappingFragment StoreEntitySet="notification">
+                <ScalarProperty Name="readed" ColumnName="readed" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="source_id" ColumnName="source_id" />
+                <ScalarProperty Name="source_name" ColumnName="source_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inst_previous_courses">
+            <EntityTypeMapping TypeName="adv_coursesModel.inst_previous_courses">
+              <MappingFragment StoreEntitySet="inst_previous_courses">
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="inst_id" ColumnName="inst_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_comment">
+            <EntityTypeMapping TypeName="adv_coursesModel.course_comment">
+              <MappingFragment StoreEntitySet="course_comment">
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="group_comment">
+            <EntityTypeMapping TypeName="adv_coursesModel.group_comment">
+              <MappingFragment StoreEntitySet="group_comment">
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

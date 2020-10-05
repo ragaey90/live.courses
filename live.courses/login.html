@@ -1,0 +1,231 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <!--<link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/StyleSheet.css" rel="stylesheet" />
+
+    <script src="mypages/Loginh/js/jquery-3.3.1.min.js"></script>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body style="padding-top:20px">
+    <header>
+        <div class="container">
+            <div class="row">
+                <a href="#" class="logo"><img src="" /></a>
+                <nav>
+                    <ul>
+                        <li id="as"><a href="/mvcUsers/home">Home</a></li>
+                        <li><a href="/mvccourses/Index">courses</a></li>
+                        <li><a href="/mvcwork_group/Index">work groups</a></li>
+                        <li><a href="/mvcUsers/profile">profile</a></li>
+                        <li><a href="#">our Team</a></li>
+                        <li><a href="#">contact</a></li>
+
+                    </ul>
+
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    //////////////////////////////////////////////////////
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+
+
+                <!-- Outer Row -->
+                <div class="row justify-content-center">
+
+                    <div class="col-xl-10 col-lg-12 col-md-9">
+
+                        <div class="card o-hidden border-0 shadow-lg my-5">
+                            <div class="card-body p-0">
+                                <!-- Nested Row within Card Body bg-login-image-->
+                                <div class="row">
+                                    <div class="col-lg-6 d-none d-lg-block " style="background-image: url('../../Content/images/92438594_217682922778854_8318323677699506176_n.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover; "></div>
+                                    <div class="col-lg-6">
+                                        <div class="p-5">
+                                            <div class="text-center">
+                                                <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                            </div>
+                                            <div class="form-group">
+
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-user", id = "exampleInputEmail", placeholder = "Enter Email Address..." })
+                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-user", id = "exampleInputPassword", placeholder = "Password" })
+                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small">
+                                                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input", id = "customCheck" })
+                                                    <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                                </div>
+                                            </div>
+                                            <input type="submit" value="Login" class="btn btn-primary btn-user btn-block" />
+                                            <hr>
+                                            <div class="text-center">
+                                                @Html.ActionLink("Create an Account!", "Register", new { @class = "small" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                }
+
+            </section>
+        </div>
+
+    </div>
+    /////////////////////////////////////////////////////////////////
+
+
+    <div class="col-md-10 col-md-offset-1">
+        <div class="well">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="success">
+                        <td colspan="2">
+                            log in
+                            <a class="btn btn-success pull-right" href="Register.html">register</a>
+
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>User Name</td>
+                        <td>
+                            <input type="text" id="txtusername" placeholder="UserName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>
+                            <input type="password" id="txtpass" placeholder="password" />
+                        </td>
+                    </tr>
+                    <tr class="success">
+                        <td colspan="2">
+                            <input id="btnlogin" class="btn btn-success" type="button" value="login" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal fade" tabindex="-1" id="SuccessModal"
+                 data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog modal-sm">
+                    <div class=" modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                            <h4>success</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h2>Registeration Successful</h2>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="btn btn-success">
+                                Cloose
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div id="divError" class="alert alert-danger collapse">
+                <a id="linkClose" class="close" href="#">&times;</a>
+                <div id="divErrorText"></div>
+            </div>
+        </div>
+    </div>
+    <script src="mypages/Loginh/js/jquery-3.3.1.min.js"></script>
+    <script src="mypages/Loginh/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function () {
+            $("")
+        });
+    </script>-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#linkClose").click(function () {
+                $("#divError").hide('fade');
+            });
+
+            $("#btnlogin").click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Token',
+                    contentType: 'application/json',
+
+                    data: {
+                        username: $("#txtusername").val(),
+                        password: $("#txtpass").val(),
+                        grant_type: 'password'
+                    },
+                    success: function (response) {
+                        sessionStorage.setItem("accessToken", response.access_token);
+                        window.location.href = "/mvcusers/profile?name=" + $("#txtusername").val();
+                    },
+                    error: function (data) {
+                        $("#divErrorText").text(data.responseText);
+                        $("#divError").show("fade");
+                    },
+
+                });
+            });
+        });
+    </script>
+    <!--<script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnlogin").click(function () {
+                var loginData = {
+                    grant_type: 'password',
+                    username: self.loginEmail(),
+                    password: self.loginPassword()
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Token',
+                    data: loginData
+                }).done(function (data) {
+                    self.user(data.userName);
+                    // Cache the access token in session storage.
+                    sessionStorage.setItem(tokenKey, data.access_token);
+                }).fail(showError);
+            });
+
+        });
+
+    </script>-->
+    <footer style="background-color:bisque;text-align:center;padding:3em;">
+        <p>&copy; @DateTime.Now.Year - our DataBase project</p>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+
+
+

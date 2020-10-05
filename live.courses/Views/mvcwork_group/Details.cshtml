@@ -1,0 +1,134 @@
+﻿@model live.courses.Models.work_group
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_mylayout.cshtml";
+}
+<style type="text/css">
+    dt {
+        background-color: lightgoldenrodyellow;
+        width: 50px;
+        height: 50px;
+        margin: 0.2em;
+        text-align: center;
+        border: thin dashed #0d7670;
+        align-self: center;
+        color: purple;
+        text-anchor: start;
+        padding: 10px ;
+        font-size: large;
+    }
+
+    dd {
+        border: groove thin;
+        padding: 11px 20px;
+    }
+</style>
+<h2>Details for: @Model.name work group</h2>
+
+<div>
+    <h4>hope you found it Helpfull :)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.about)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.about)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.creating_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.creating_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.place)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.place)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.availlable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.availlable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.way_to_apply)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.way_to_apply)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.video)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.video)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archived)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

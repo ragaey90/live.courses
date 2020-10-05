@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+        .dl-horizontal dt {
+            padding: 5px;
+            text-align: center;
+            background-color: lavender;
+            margin: 2px;
+            border-radius: 25px;
+            height:35px;
+        }
+
+        .dl-horizontal dd {
+            border: 2px solid lightblue;
+            border-radius: 25px;
+            text-align: center;
+            margin-bottom: 1px;
+            padding: 2px;
+            /*width: 300px;*/
+            transition: 0.5s;
+        }
+
+            .dl-horizontal dd:hover {
+                border: 2px solid lightblue;
+                border-radius: 25px;
+                text-align: center;
+                margin-bottom: 1px;
+                padding: 2px;
+                /*width: 400px;*/
+                background-color: lightgreen;
+                font-size: 150%;
+            }
+
+        h2 {
+            border-radius: 15px;
+            background-color: cornflowerblue;
+            width: 35%;
+            text-align: center;
+            left: 50%;
+            padding: 10px;
+            margin-left: 30%;
+            color: white;
+            border: 2px solid #30073c;
+        }
+        /*h4 {
+            background-color: antiquewhite;
+            width:20%;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #30073c;
+        }*/
+        .table {
+            /*border-collapse: collapse;*/
+
+            padding: 5px;
+        }
+
+            .table th {
+                color: blue;
+                font-size:large;
+                background-color: lightblue;
+                padding-bottom: 5px;
+                padding-top: 5px;
+            }
+
+            .table th, .table td {
+                border: 1px solid #ddd;
+                padding: 5px;
+            }
+
+        body {
+            /*font-size: 180%;*/
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+
+
+                @*<a href="#" class="logo"><b>live </b>course</a>*@
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #74c5e0;">
+                    <a class="navbar-brand" href="#"><b>live </b>course</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/mvcUsers/home">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/mvcUsers/index">All users</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </nav>
+
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <hr />
+    <footer style="background-color:bisque;text-align:center;padding:3em;">
+        <p>&copy; @DateTime.Now.Year - LiveCourse</p>
+
+    </footer>
+    <script src="/mypages/Loginh/js/jquery-3.3.1.min.js"></script>
+    <script src="/mypages/Loginh/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

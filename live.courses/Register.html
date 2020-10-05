@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/StyleSheet.css" rel="stylesheet" />
+    <script src="mypages/Loginh/js/jquery-3.3.1.min.js"></script>
+</head>
+<body style="padding-top:20px">
+    <header>
+        <div class="container">
+            <div class="row">
+                <a href="#" class="logo"><img src="" /></a>
+                <nav>
+                    <ul>
+                        <li id="as"><a href="/mvcUsers/home">Home</a></li>
+                        <li><a href="/mvccourses/Index">courses</a></li>
+                        <li><a href="/mvcwork_group/Index">work groups</a></li>
+                        <li><a href="/mvcUsers/profile">profile</a></li>
+                        <li><a href="#">our Team</a></li>
+                        <li><a href="#">contact</a></li>
+
+                    </ul>
+
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="col-md-10 col-md-offset-1">
+        <div class="well">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="success">
+                        <td colspan="2">
+                            New user Registeration
+                            <span style="text-align:right;padding-left:650px;padding-top:10px;">Allredy have An Account </span> <a class="btn btn-success pull-right" href="Login.html">Login</a>
+
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>User Name</td>
+                        <td>
+                            <input type="text" id="txtusername" placeholder="UserName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>
+                            <input type="text" id="txtphone" placeholder="PhoneNumber" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <input type="text" id="txtmail" placeholder="Email" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>country</td>
+                        <td>
+                            <input type="text" id="txtcountry" placeholder="country" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>state</td>
+                        <td>
+                            <input type="text" id="txtstate" placeholder="state" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>
+                            <input type="password" id="txtpass" placeholder="password" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Confirm Password</td>
+                        <td>
+                            <input type="password" id="txtConfirmPass" placeholder="Confirm Password" />
+                        </td>
+                    </tr>
+                    <tr class="success">
+                        <td colspan="2">
+                            <input id="btnregister" class="btn btn-success" type="button" value="Register" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal fade" tabindex="-1" id="SuccessModal"
+                 data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog modal-sm">
+                    <div class=" modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                            <h4>success</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h2>Registeration Successful</h2>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="btn btn-success">
+                                Cloose
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div id="divError" class="alert alert-danger collapse">
+                <a id="linkClose" class="close" href="#">&times;</a>
+                <div id="divErrorText"></div>
+            </div>
+        </div>
+    </div>
+    <script src="mypages/Loginh/js/jquery-3.3.1.min.js"></script>
+    <script src="mypages/Loginh/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function () {
+            jQuery("div").hide();
+        });
+    </script>-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#linkClose").click(function () {
+                $("#divError").hide('fade');
+            });
+
+            $("#btnregister").click(function () {
+                $.ajax({
+                    url: '/api/account/register',
+                    method: 'Post',
+                    data: {
+                        UserName: $("#txtusername").val(),
+                        Phone: $("#txtphone").val(),
+                        Email: $("#txtmail").val(),
+                        password: $("#txtpass").val(),
+                        ConfirmPassword: $("#txtConfirmPass").val(),
+                        country: $("#txtcountry").val(),
+                        state: $("#txtstate").val()
+                    },
+                    success: function (data) {
+                        $("#SuccessModal").modal("show");
+                        alert("success");
+                    },
+                    error: function (data) {
+                        $("#divErrorText").text(data.responseText);
+                        $("#divError").show("fade");
+                    },
+
+                });
+            });
+        });
+    </script>
+    <!--<script type="text/javascript">
+        const url = 'api/account/register';
+        const data = {
+            UserName: $('#txtusername').val(),
+            Phone: $('#txtphone').val(),
+            Email: $('#txtmail').val(),
+            country: $('#txtcountry').val(),
+            state: $('#txtstate').val(),
+            password: $('#txtpass').val(),
+            ConfirmPassword: $('#txtConfirmPass').val()
+        }
+        $('#btnregister').click(function () {
+            $.post(url, data, function (data, status) { console.log(data+'and status is '+status) });
+        }, function () { alert("success") });
+    </script>-->
+    <!--<script>
+        function myFunction() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "http://localhost:43139/api/account/register", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            var input = JSON.stringify({
+                "UserName": $("#txtusername").val(),
+                "Phone": $("#txtphone").val(),
+                "Email": $("#txtmail").val(),
+                "country": $("#txtcountry").val(),
+                "state": $("#txtstate").val(),
+                "password": $("#txtpass").val(),
+               " ConfirmPassword": $("#txtConfirmPass").val()
+        });
+        xhttp.send(input);
+        }
+    </script>-->
+    <!--<script type="text/javascript">
+        var myFunction = function () {
+            var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+            xmlhttp.open("POST", "api/account/register", true);
+            xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.send(JSON.stringify({
+                UserName: $('#txtusername').val(),
+                Phone: $('#txtphone').val(),
+                Email: $('#txtmail').val(),
+                country: $('#txtcountry').val(),
+                state: $('#txtstate').val(),
+                password: $('#txtpass').val(),
+                ConfirmPassword: $('#txtConfirmPass').val()
+            }));
+        };
+    </script>-->
+    <!--<script type="text/javascript">
+        $("#btnregister").click(function () {
+            $.ajax("api/account/register", {
+                type: "POST",
+                data: JSON.stringify({
+                    UserName: $("#txtusername").val(),
+                    Phone: $("#txtphone").val(),
+                    Email: $("#txtmail").val(),
+                    country: $("#txtcountry").val(),
+                    state: $("#txtstate").val(),
+                    password: $("#txtpass").val(),
+                    ConfirmPassword: $("#txtConfirmPass").val()
+                }),
+                contentType: "application/json",
+            }).done(function (data) {
+                $("#SuccessModal").modal("show");
+            }).fail(function (xhr, status, error) {
+                $("#divErrorText").text(error.responseText);
+                $("#divError").show("fade");
+            });
+        }
+    </script>-->
+    <footer style="background-color:bisque;text-align:center;padding:3em;">
+        <p>&copy; @DateTime.Now.Year - our DataBase project</p>
+
+    </footer>
+</body>
+</html>

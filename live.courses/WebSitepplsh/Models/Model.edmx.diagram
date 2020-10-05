@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="19ef79c6ba474c0da88039ad296cb924" Name="Diagram1">
+        <EntityTypeShape EntityType="adv_coursesModel.AspNetRole" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.AspNetUser" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.certificate" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.course" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.Course_Members" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.course_tags" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.friend" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.message" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.notification" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.room" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.Room_Members" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.sysdiagram" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.tag" Width="1.5" PointX="6" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.work_group" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.Work_group_members" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="adv_coursesModel.work_group_tags" Width="1.5" PointX="8.25" PointY="17.875" IsExpanded="true" />
+        <AssociationConnector Association="adv_coursesModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_Course_Members_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_Room_Members_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_Work_group_members_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_Course_Members_course" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_course_tags_course" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_course_tags_tags" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_Room_Members_room" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_work_group_tags_tags" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_Work_group_members_work_group" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.FK_work_group_tags_work_group" ManuallyRouted="false" />
+        <AssociationConnector Association="adv_coursesModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

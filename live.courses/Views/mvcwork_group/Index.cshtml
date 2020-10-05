@@ -1,0 +1,137 @@
+﻿@model IEnumerable<live.courses.Models.work_group>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mylayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.about)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creating_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availlable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.way_to_apply)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.admin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.video)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Archived)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.about)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creating_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.place)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.availlable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.way_to_apply)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.admin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.video)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Archived)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+            <h1 class="my-4">
+                Page Heading
+                <small>Secondary Text</small>
+            </h1>
+            @foreach (var item in Model)
+            {
+            <div class="card mb-4">
+                <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                <div class="card-body">
+                    <h2 class=" card-title">
+                        @Html.ActionLink(item.name, "Details", new { id = item.id })
+                    </h2>
+                    
+                    About :  <p class="card-text">@item.about</p>
+                    <a href="#" class="btn btn-primary">join this work group</a>
+                </div>
+                <div class="card-footer text-muted">
+                    created on @item.creating_date
+                </div>
+            </div>
+            <hr />
+            <br />
+            }
+            
+            
+            </div>
+</div>
+</div>

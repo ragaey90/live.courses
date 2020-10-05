@@ -1,0 +1,124 @@
+﻿@model IEnumerable<live.courses.Models.course>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mylayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.about)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creating_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.way_to_pay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.allow_buying)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availlable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.way_to_apply)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.video)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.about)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creating_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.place)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.way_to_pay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allow_buying)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.availlable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.way_to_apply)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.video)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+
+    }
+
+</table>
+@foreach (var item in Model)
+{
+    <table>
+        <tr><td><img src="" /></td></tr>
+        <tr><td><h3>@Html.ActionLink(item.name, "details", new { id = item.id })</h3></td></tr>
+        <tr><td style="background-color:aliceblue;">@Html.DisplayFor(modelitem => item.category)</td></tr>
+        <tr><td>@Html.DisplayFor(modelitem => item.about)</td></tr>
+        <tr><td><button class="btn btn-primary">Join this course</button></td></tr>
+        
+
+    </table>
+    <br />
+    <hr />
+    <br />
+}
